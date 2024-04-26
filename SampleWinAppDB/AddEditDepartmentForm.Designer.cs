@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtDepName = new System.Windows.Forms.TextBox();
+            this.BtnClear = new System.Windows.Forms.Button();
+            this.BtnAddEdit = new System.Windows.Forms.Button();
             this.txtDepCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.BtnAddEdit = new System.Windows.Forms.Button();
-            this.BtnClear = new System.Windows.Forms.Button();
+            this.txtDepName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -55,22 +55,30 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // label2
+            // BtnClear
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(43, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Department Name:";
+            this.BtnClear.BackColor = System.Drawing.Color.IndianRed;
+            this.BtnClear.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnClear.Location = new System.Drawing.Point(187, 199);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(88, 39);
+            this.BtnClear.TabIndex = 5;
+            this.BtnClear.Text = "Clear";
+            this.BtnClear.UseVisualStyleBackColor = false;
             // 
-            // txtDepName
+            // BtnAddEdit
             // 
-            this.txtDepName.Location = new System.Drawing.Point(43, 65);
-            this.txtDepName.Name = "txtDepName";
-            this.txtDepName.Size = new System.Drawing.Size(232, 20);
-            this.txtDepName.TabIndex = 1;
+            this.BtnAddEdit.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BtnAddEdit.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAddEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnAddEdit.Location = new System.Drawing.Point(40, 199);
+            this.BtnAddEdit.Name = "BtnAddEdit";
+            this.BtnAddEdit.Size = new System.Drawing.Size(88, 39);
+            this.BtnAddEdit.TabIndex = 4;
+            this.BtnAddEdit.Text = "Add";
+            this.BtnAddEdit.UseVisualStyleBackColor = false;
+            this.BtnAddEdit.Click += new System.EventHandler(this.BtnAddEdit_Click);
             // 
             // txtDepCode
             // 
@@ -89,24 +97,22 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Department Code:";
             // 
-            // BtnAddEdit
+            // txtDepName
             // 
-            this.BtnAddEdit.Location = new System.Drawing.Point(40, 191);
-            this.BtnAddEdit.Name = "BtnAddEdit";
-            this.BtnAddEdit.Size = new System.Drawing.Size(70, 31);
-            this.BtnAddEdit.TabIndex = 4;
-            this.BtnAddEdit.Text = "Add";
-            this.BtnAddEdit.UseVisualStyleBackColor = true;
-            this.BtnAddEdit.Click += new System.EventHandler(this.BtnAddEdit_Click);
+            this.txtDepName.Location = new System.Drawing.Point(43, 65);
+            this.txtDepName.Name = "txtDepName";
+            this.txtDepName.Size = new System.Drawing.Size(232, 20);
+            this.txtDepName.TabIndex = 1;
             // 
-            // BtnClear
+            // label2
             // 
-            this.BtnClear.Location = new System.Drawing.Point(202, 191);
-            this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(70, 31);
-            this.BtnClear.TabIndex = 5;
-            this.BtnClear.Text = "Clear";
-            this.BtnClear.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(43, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Department Name:";
             // 
             // panel1
             // 
@@ -123,7 +129,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe Fluent Icons", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(114, 21);
+            this.label1.Location = new System.Drawing.Point(114, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 32);
             this.label1.TabIndex = 0;
@@ -137,7 +143,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddEditDepartmentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditDepartmentForm";
+            this.TransparencyKey = System.Drawing.Color.Cyan;
             this.Load += new System.EventHandler(this.AddEditDepartmentForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

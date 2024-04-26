@@ -87,40 +87,6 @@ namespace SampleWinAppDB
                 }
             
         }
-      /*  private void DisplayRecords(int collegeID) {
-            if (LsvCollege.Name == "LsvDepartment")
-            {
-
-                LsvCollege.Name = "LsvDepartment";
-                List<Department> departmentRecords = new List<Department>();
-                try
-                {
-
-                    //get department records
-
-                    departmentRecords = dbconnect.GetDepartmentRecords(collegeID);
-
-                    //populate records to the listview
-                    for (int i = 0; i < departmentRecords.Count; i++)
-                    {
-                        Department d = departmentRecords[i];
-                        //display department record to the listview
-                        LsvCollege.Items.Add(d.depID.ToString());
-                        LsvCollege.Items[i].SubItems.Add(d.depName);
-                        LsvCollege.Items[i].SubItems.Add(d.depCode);
-
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            BtnBack.Visible = true;
-        }
-      */
 
         private void RefreshRecords_Click(object sender, EventArgs e)
         {

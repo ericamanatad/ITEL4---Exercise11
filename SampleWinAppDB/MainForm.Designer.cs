@@ -48,7 +48,6 @@ namespace SampleWinAppDB
             this.RefreshDepartmentRecords = new System.Windows.Forms.ToolStripMenuItem();
             this.UpdateDepartmentRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.DeactivateCollegeRecord = new System.Windows.Forms.ToolStripMenuItem();
-            this.BtnViewDepartments = new System.Windows.Forms.Button();
             this.CtxMenuStripCollegeList.SuspendLayout();
             this.panel1.SuspendLayout();
             this.CtxMenuStripDepartmentList.SuspendLayout();
@@ -205,22 +204,11 @@ namespace SampleWinAppDB
             this.DeactivateCollegeRecord.Size = new System.Drawing.Size(113, 22);
             this.DeactivateCollegeRecord.Text = "Delete";
             // 
-            // BtnViewDepartments
-            // 
-            this.BtnViewDepartments.Location = new System.Drawing.Point(56, 284);
-            this.BtnViewDepartments.Name = "BtnViewDepartments";
-            this.BtnViewDepartments.Size = new System.Drawing.Size(75, 23);
-            this.BtnViewDepartments.TabIndex = 4;
-            this.BtnViewDepartments.Text = "VIEW DEPARTMENTS";
-            this.BtnViewDepartments.UseVisualStyleBackColor = true;
-            this.BtnViewDepartments.Click += new System.EventHandler(this.BtnViewDepartments_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 397);
-            this.Controls.Add(this.BtnViewDepartments);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BtnConnect);
             this.Controls.Add(this.BtnAdd);
@@ -260,7 +248,6 @@ namespace SampleWinAppDB
         private System.Windows.Forms.ToolStripMenuItem RefreshDepartmentRecords;
         private System.Windows.Forms.ToolStripMenuItem UpdateDepartmentRecord;
         private System.Windows.Forms.ToolStripMenuItem DeactivateCollegeRecord;
-        private System.Windows.Forms.Button BtnViewDepartments;
     }
 }
 

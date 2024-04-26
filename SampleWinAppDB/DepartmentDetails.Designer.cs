@@ -115,48 +115,54 @@
             // RefreshRecords
             // 
             this.RefreshRecords.Name = "RefreshRecords";
-            this.RefreshRecords.Size = new System.Drawing.Size(180, 22);
+            this.RefreshRecords.Size = new System.Drawing.Size(113, 22);
             this.RefreshRecords.Text = "Refresh";
             this.RefreshRecords.Click += new System.EventHandler(this.RefreshRecords_Click);
             // 
             // UpdateRecord
             // 
             this.UpdateRecord.Name = "UpdateRecord";
-            this.UpdateRecord.Size = new System.Drawing.Size(180, 22);
+            this.UpdateRecord.Size = new System.Drawing.Size(113, 22);
             this.UpdateRecord.Text = "Update";
             this.UpdateRecord.Click += new System.EventHandler(this.UpdateRecord_Click);
             // 
             // DeactivateRecord
             // 
             this.DeactivateRecord.Name = "DeactivateRecord";
-            this.DeactivateRecord.Size = new System.Drawing.Size(180, 22);
+            this.DeactivateRecord.Size = new System.Drawing.Size(113, 22);
             this.DeactivateRecord.Text = "Delete";
             this.DeactivateRecord.Click += new System.EventHandler(this.DeactivateRecord_Click);
             // 
             // BtnAdd
             // 
-            this.BtnAdd.Location = new System.Drawing.Point(577, 302);
+            this.BtnAdd.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BtnAdd.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnAdd.Location = new System.Drawing.Point(559, 300);
             this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(70, 31);
+            this.BtnAdd.Size = new System.Drawing.Size(88, 39);
             this.BtnAdd.TabIndex = 2;
             this.BtnAdd.Text = "Add";
-            this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.UseVisualStyleBackColor = false;
             this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // BtnBack
             // 
-            this.BtnBack.Location = new System.Drawing.Point(42, 289);
+            this.BtnBack.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BtnBack.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBack.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnBack.Location = new System.Drawing.Point(42, 300);
             this.BtnBack.Name = "BtnBack";
-            this.BtnBack.Size = new System.Drawing.Size(106, 44);
+            this.BtnBack.Size = new System.Drawing.Size(88, 39);
             this.BtnBack.TabIndex = 5;
             this.BtnBack.Text = "Back";
-            this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.UseVisualStyleBackColor = false;
             this.BtnBack.Visible = false;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // BtnConnect
             // 
-            this.BtnConnect.Location = new System.Drawing.Point(328, 326);
+            this.BtnConnect.Location = new System.Drawing.Point(307, 345);
             this.BtnConnect.Name = "BtnConnect";
             this.BtnConnect.Size = new System.Drawing.Size(75, 23);
             this.BtnConnect.TabIndex = 6;

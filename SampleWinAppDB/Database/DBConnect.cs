@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using Org.BouncyCastle.Ocsp;
 using SampleWinAppDB.Model;
 
@@ -290,7 +291,10 @@ namespace SampleWinAppDB.Database
                 //establish DB server connection
                 if (Connect())
                 {
-                    string query = "INSERT INTO department(depName,depCode, IsActive, CollegeID) VALUES('"
+                    string query = "INSERT INTO department(depName, depCode, collegeID) VALUES("+ department.depName + ", " + department.depName + ", (SELECT CollegeID FROM college WHERE collegeName ="+ college.CollegeName + "))";
+                    MessageBox.Show("QUERY : " +query);
+
+                   /* string query = "INSERT INTO department(depName,depCode, IsActive, CollegeID) VALUES('"
                                    + department.depName
                                    + "','"
                                    + department.depCode
@@ -298,7 +302,7 @@ namespace SampleWinAppDB.Database
                                    + department.IsActive
                                    + ","
                                    + college.CollegeID
-                                   + "');";
+                                   + "');";*/
                     MessageBox.Show(query);
                     //create MySQL command with the corresponding query string and connection
                     MySqlCommand cmd = new MySqlCommand(query, conn);
