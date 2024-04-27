@@ -1,19 +1,18 @@
-﻿using SampleWinAppDB.Database;
-using SampleWinAppDB.Model;
+﻿using CollegeDepartmentWinApp.Database;
+using CollegeDepartmentWinApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace SampleWinAppDB
+namespace CollegeDepartmentWinApp
 {
     public partial class DepartmentDetails : Form
     {
         private DBConnect dbconnect;
-        private int selectedCollegeID;
+        private int selectedCollegeID { get; set; }
         private int collegeID;
-        private int id;
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
@@ -66,14 +65,14 @@ namespace SampleWinAppDB
         {
             BtnBack.Visible = true;
 
-            label2.Text = "CollegeID : " + id.ToString();
+            //label2.Text = "CollegeID : " + id.ToString();
             List<Department> departmentRecords = new List<Department>();
             try
             {
-                MessageBox.Show("collegeID: sent to DisplayRecords" + id);
+                //MessageBox.Show("collegeID: sent to DisplayRecords" + id);
+                GetChosenCollegeID(id);
                 //get department records
-                departmentRecords = dbconnect.GetDepartmentRecords(id);
-                //populate records to the listview
+                departmentRecords = dbconnect.GetDepartmentRecords(selectedCollegeID);
                 //populate records to the listview
                 foreach (Department d in departmentRecords)
                 {
@@ -93,18 +92,24 @@ namespace SampleWinAppDB
 
 
         }
+        public int GetChosenCollegeID(int id) {
+
+            selectedCollegeID = id;
+            //MessageBox.Show("selectedCollegeID = id;" + selectedCollegeID);
+                return selectedCollegeID;
+        }
 
       
         private void BtnAdd_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Clicked ADD");
+        { 
             //load/show Add/Edit Form
-            AddEditDepartmentForm departmentForm = new AddEditDepartmentForm(dbconnect, null);
+            AddEditDepartmentForm departmentForm = new AddEditDepartmentForm(dbconnect, null, GetChosenCollegeID(selectedCollegeID));
+            //MessageBox.Show(" private int GetChosenCollegeID(int id) : BtnAdd_Click" + GetChosenCollegeID(selectedCollegeID));
             //update form label
             departmentForm.Text = "Add Record";
             departmentForm.ShowDialog();
-            //LsvDepartment.Items.Clear();
-            DisplayRecords(id);
+            LsvDepartment.Items.Clear();
+            DisplayRecords(selectedCollegeID);
         }
 
         ////////////
@@ -128,7 +133,8 @@ namespace SampleWinAppDB
         {
             //clear ListView
             LsvDepartment.Items.Clear();
-            DisplayRecords(id);
+            DisplayRecords(selectedCollegeID);
+            //MessageBox.Show(" RefreshRecords_Click selectedCollegeID : " + selectedCollegeID);
         }
 
         private void UpdateRecord_Click(object sender, EventArgs e)
@@ -150,7 +156,7 @@ namespace SampleWinAppDB
                 departmentForm.ShowDialog();
             }
             LsvDepartment.Items.Clear();
-            DisplayRecords(id);
+            DisplayRecords(selectedCollegeID);
         }
 
         private void DeactivateRecord_Click(object sender, EventArgs e)
@@ -171,7 +177,7 @@ namespace SampleWinAppDB
                     {
                         bool status = dbconnect.DeleteDepartmentRecords(id);
                         if (status)
-                            MessageBox.Show("Record deleted successfully!", "Test App", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Record deleted successfully!", "STATUS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                             MessageBox.Show("Could not delete record!", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -183,7 +189,7 @@ namespace SampleWinAppDB
                 MessageBox.Show(ex.Message, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             LsvDepartment.Items.Clear();
-            DisplayRecords(id);
+            DisplayRecords(selectedCollegeID);
         }
     } 
 }

@@ -4,16 +4,16 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using Org.BouncyCastle.Ocsp;
-using SampleWinAppDB.Model;
+using CollegeDepartmentWinApp.Model;
 
-namespace SampleWinAppDB.Database
+namespace CollegeDepartmentWinApp.Database
 {
     public class DBConnect
     {
         private MySqlConnection conn;
         private string connectionString;
-        private int id;
-        private int chosenCollegeID;
+        //private int id;
+        public int ChosenCollegeID { get; set; } 
 
         public MySqlConnection Conn { get => conn; set => conn = value; }
     
@@ -282,28 +282,31 @@ namespace SampleWinAppDB.Database
          */
 
 
-        public bool AddDepartmentRecords(Department department, College college)
+        public bool AddDepartmentRecords(Department department, College college, int collegeID)
         {
-            DBConnect chosenCollegeID = new DBConnect();
+            DepartmentDetails departmentDetails = new DepartmentDetails();
+            this.ChosenCollegeID = collegeID;
             bool status = false;
             try
             {
                 //establish DB server connection
                 if (Connect())
                 {
-                    string query = "INSERT INTO department(depName, depCode, collegeID) VALUES("+ department.depName + ", " + department.depName + ", (SELECT CollegeID FROM college WHERE collegeName ="+ college.CollegeName + "))";
-                    MessageBox.Show("QUERY : " +query);
+                    string query = "INSERT INTO department(depName, depCode, collegeID) VALUES('" + department.depName + "', '" + department.depCode + "'," + collegeID + ")";
+                    //string query = "INSERT INTO department(depName, depCode, collegeID) VALUES('" + department.depName + "', '" + department.depName + "'," + collegeID + "))";
+                    //INSERT INTO department(depName, depCode, collegeID) VALUES('xyz', 'xyz', 14);
 
-                   /* string query = "INSERT INTO department(depName,depCode, IsActive, CollegeID) VALUES('"
-                                   + department.depName
-                                   + "','"
-                                   + department.depCode
-                                   + ","
-                                   + department.IsActive
-                                   + ","
-                                   + college.CollegeID
-                                   + "');";*/
-                    MessageBox.Show(query);
+                    // MessageBox.Show("QUERY : " +query);
+                    /* using (SqlConnection connection = new SqlConnection(connectionString))
+                                       {
+                                           using (SqlCommand command = new SqlCommand(query, connection))
+                                           {
+                                               // Add parameters
+                                               command.Parameters.AddWithValue("@DepName", department.depName);
+                                               command.Parameters.AddWithValue("@DepCode", department.depCode);
+                                               command.Parameters.AddWithValue("@CollegeID", department.ChosenCollegeID);
+                    */
+                   // MessageBox.Show(query);
                     //create MySQL command with the corresponding query string and connection
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     //create MySQL data reader

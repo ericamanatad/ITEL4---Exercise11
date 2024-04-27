@@ -1,4 +1,4 @@
-﻿namespace SampleWinAppDB
+﻿namespace CollegeDepartmentWinApp
 {
     partial class AddEditDepartmentForm
     {
@@ -66,6 +66,7 @@
             this.BtnClear.TabIndex = 5;
             this.BtnClear.Text = "Clear";
             this.BtnClear.UseVisualStyleBackColor = false;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // BtnAddEdit
             // 

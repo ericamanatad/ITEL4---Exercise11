@@ -1,5 +1,5 @@
-﻿using SampleWinAppDB.Database;
-using SampleWinAppDB.Model;
+﻿using CollegeDepartmentWinApp.Database;
+using CollegeDepartmentWinApp.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SampleWinAppDB
+namespace CollegeDepartmentWinApp
 {
     public partial class AddEditDepartmentForm : Form
     {
@@ -18,6 +18,9 @@ namespace SampleWinAppDB
         private DBConnect dbconnect;
         private Department toUpdate;
         private int chosenCollegeID;
+        DepartmentDetails departmentDetails;
+
+        public int selectedCollegeID { get; set; }
 
         public AddEditDepartmentForm() { 
         }
@@ -33,6 +36,11 @@ namespace SampleWinAppDB
                 BtnAddEdit.Text = "Save";
         }
 
+        public AddEditDepartmentForm(DBConnect dbconnect, Department toUpdate, int selectedCollegeID) : this(dbconnect, toUpdate)
+        {
+            this.selectedCollegeID = selectedCollegeID;
+        }
+
         public void Clear (){
             txtDepName.Text = txtDepCode.Text = string.Empty;
         }
@@ -41,23 +49,32 @@ namespace SampleWinAppDB
         {
             try
             {
+               
                 bool status = false;
-                //get the inputs from the form
                 Department department = new Department();
                 College college = new College();
-
+                //get the inputs from the form
                 department.depName = txtDepName.Text.Trim();
                 department.depCode = txtDepCode.Text.Trim();
+                int GetChosenCollegeID(int collegeID)
+                {
+                    chosenCollegeID = selectedCollegeID;
+                    return chosenCollegeID;
+                }
+                //chosenCollegeID = college.CollegeID;
+                //MessageBox.Show("chosenCollegeID = college.CollegeID  in  BtnAddEdit_Click of AddEditDepartmentForm: " + chosenCollegeID);
+
                 //validate inputs
                 if (!string.IsNullOrEmpty(department.depName) && !string.IsNullOrEmpty(department.depCode))
                 {
                     if (toUpdate == null)
                     {
                         //add college record
-                        status = dbconnect.AddDepartmentRecords(department, college);
+                        departmentDetails = new DepartmentDetails();
+                        status = dbconnect.AddDepartmentRecords(department, college, GetChosenCollegeID(chosenCollegeID));
                         if (status)
                         {
-                            MessageBox.Show("Record added successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Record added successfully!", "STATUS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Close();
                         }
                         else
@@ -70,7 +87,7 @@ namespace SampleWinAppDB
                         status = dbconnect.UpdateDepartmentRecords(department);
                         if (status)
                         {
-                            MessageBox.Show("Record updated successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Record updated successfully!", "STATUS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //close current form
                             Close();
 
@@ -80,7 +97,7 @@ namespace SampleWinAppDB
                     }
                 }
                 else
-                    MessageBox.Show("Please complete the form!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please complete the form!", "STATUS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -96,6 +113,11 @@ namespace SampleWinAppDB
                 txtDepName.Text = toUpdate.depName;
                 txtDepCode.Text = toUpdate.depCode;
             }
+        }
+
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }

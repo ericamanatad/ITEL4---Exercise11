@@ -1,4 +1,4 @@
-﻿namespace SampleWinAppDB
+﻿namespace CollegeDepartmentWinApp
 {
     partial class DepartmentDetails
     {
@@ -42,7 +42,6 @@
             this.BtnAdd = new System.Windows.Forms.Button();
             this.BtnBack = new System.Windows.Forms.Button();
             this.BtnConnect = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.CtxMenuStripDepartmentList.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +53,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(695, 53);
+            this.panel1.Size = new System.Drawing.Size(778, 53);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -78,9 +77,9 @@
             this.LsvDepartment.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvDepartment.FullRowSelect = true;
             this.LsvDepartment.HideSelection = false;
-            this.LsvDepartment.Location = new System.Drawing.Point(42, 96);
+            this.LsvDepartment.Location = new System.Drawing.Point(30, 90);
             this.LsvDepartment.Name = "LsvDepartment";
-            this.LsvDepartment.Size = new System.Drawing.Size(605, 187);
+            this.LsvDepartment.Size = new System.Drawing.Size(712, 175);
             this.LsvDepartment.TabIndex = 1;
             this.LsvDepartment.UseCompatibleStateImageBehavior = false;
             this.LsvDepartment.View = System.Windows.Forms.View.Details;
@@ -89,19 +88,19 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Department ID";
-            this.columnHeader1.Width = 100;
+            this.columnHeader1.Width = 200;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Department Name";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 300;
+            this.columnHeader2.Width = 350;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Department Code";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 200;
+            this.columnHeader3.Width = 150;
             // 
             // CtxMenuStripDepartmentList
             // 
@@ -138,7 +137,7 @@
             this.BtnAdd.BackColor = System.Drawing.SystemColors.Highlight;
             this.BtnAdd.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnAdd.Location = new System.Drawing.Point(559, 300);
+            this.BtnAdd.Location = new System.Drawing.Point(654, 300);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(88, 39);
             this.BtnAdd.TabIndex = 2;
@@ -151,7 +150,7 @@
             this.BtnBack.BackColor = System.Drawing.SystemColors.Highlight;
             this.BtnBack.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBack.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnBack.Location = new System.Drawing.Point(42, 300);
+            this.BtnBack.Location = new System.Drawing.Point(30, 300);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(88, 39);
             this.BtnBack.TabIndex = 5;
@@ -162,7 +161,7 @@
             // 
             // BtnConnect
             // 
-            this.BtnConnect.Location = new System.Drawing.Point(307, 345);
+            this.BtnConnect.Location = new System.Drawing.Point(353, 374);
             this.BtnConnect.Name = "BtnConnect";
             this.BtnConnect.Size = new System.Drawing.Size(75, 23);
             this.BtnConnect.TabIndex = 6;
@@ -170,21 +169,11 @@
             this.BtnConnect.UseVisualStyleBackColor = true;
             this.BtnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(347, 390);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
-            // 
             // DepartmentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 450);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(778, 397);
             this.Controls.Add(this.BtnConnect);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.BtnAdd);
@@ -199,7 +188,6 @@
             this.panel1.PerformLayout();
             this.CtxMenuStripDepartmentList.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -218,6 +206,5 @@
         private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.Button BtnBack;
         private System.Windows.Forms.Button BtnConnect;
-        private System.Windows.Forms.Label label2;
     }
 }

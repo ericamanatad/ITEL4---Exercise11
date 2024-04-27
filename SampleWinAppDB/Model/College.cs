@@ -1,4 +1,4 @@
-﻿namespace SampleWinAppDB.Model
+﻿namespace CollegeDepartmentWinApp.Model
 {
     public class College
     {

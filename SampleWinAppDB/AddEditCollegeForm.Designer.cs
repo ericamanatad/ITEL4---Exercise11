@@ -1,5 +1,5 @@
 ﻿
-namespace SampleWinAppDB
+namespace CollegeDepartmentWinApp
 {
     partial class AddEditCollegeForm
     {
@@ -156,7 +156,6 @@ namespace SampleWinAppDB
             this.MaximizeBox = false;
             this.Name = "AddEditCollegeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sample App v1.0";
             this.TransparencyKey = System.Drawing.Color.Cyan;
             this.Load += new System.EventHandler(this.AddEditCollegeForm_Load);
             this.panel1.ResumeLayout(false);

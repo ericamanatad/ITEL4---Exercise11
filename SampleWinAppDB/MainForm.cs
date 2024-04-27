@@ -1,10 +1,10 @@
-﻿using SampleWinAppDB.Database;
-using SampleWinAppDB.Model;
+﻿using CollegeDepartmentWinApp.Database;
+using CollegeDepartmentWinApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SampleWinAppDB
+namespace CollegeDepartmentWinApp
 {
     public partial class MainForm : Form
     {
@@ -91,7 +91,7 @@ namespace SampleWinAppDB
         private void RefreshRecords_Click(object sender, EventArgs e)
         {
             //clear ListView
-            //LsvCollege.Items.Clear();
+            LsvCollege.Items.Clear();
             DisplayRecords();
         }
 
@@ -160,7 +160,6 @@ namespace SampleWinAppDB
         }
         private void ViewDepartments_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("VIEW DEPARTMENT RECORDS RECORDS");
             if (LsvCollege.SelectedItems.Count > 0)
             {
                 //get the current selected college record
@@ -170,14 +169,15 @@ namespace SampleWinAppDB
 
                 //MessageBox.Show("ID: " + collegeID + " Name: " + collegeName);
                 int id = Convert.ToInt32(collegeID);
-                MessageBox.Show("collegeID : " + collegeID); 
+                //MessageBox.Show("collegeID : " + collegeID); 
 
                if (dbconnect != null)
                 {
-                    mainForm = new MainForm();
-                    mainForm.Hide();
                     DepartmentDetails departmentDetails = new DepartmentDetails(dbconnect, id);
                     departmentDetails.ShowDialog();
+
+                    this.Hide();
+                    //Close();
                 }
                 else
                 {
@@ -205,28 +205,6 @@ namespace SampleWinAppDB
 
 
         }
-
-        private void BtnViewDepartments_Click(object sender, EventArgs e)
-        {
-            DepartmentDetails departmentDetails = new DepartmentDetails();
-            departmentDetails.ShowDialog();
-        }
-        /*
-private void BtnBack_Click(object sender, EventArgs e)
-{
-   LsvCollege.Name = "LsvCollege";
-   this.Name = "College Details";
-   this.Text = "College Details";
-   LsvCollege.Name = "LsvCollege";
-   LsvCollege.ContextMenuStrip.Name = "CtxMenuStripCollegetList";
-   columnHeader1.Text = "College ID";
-   columnHeader2.Text = "College Name";
-   columnHeader3.Text = "College Code";
-   title.Text = "COLLEGE DETAILS";
-   LsvCollege.Items.Clear();
-   DisplayRecords();
-   BtnAdd.Text = "Add College";
-}
-*/
+      
     }
 }

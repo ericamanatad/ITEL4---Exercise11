@@ -1,5 +1,5 @@
 ﻿
-namespace SampleWinAppDB
+namespace CollegeDepartmentWinApp
 {
     partial class MainForm
     {
@@ -44,13 +44,8 @@ namespace SampleWinAppDB
             this.BtnConnect = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
-            this.CtxMenuStripDepartmentList = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.RefreshDepartmentRecords = new System.Windows.Forms.ToolStripMenuItem();
-            this.UpdateDepartmentRecord = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeactivateCollegeRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.CtxMenuStripCollegeList.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.CtxMenuStripDepartmentList.SuspendLayout();
             this.SuspendLayout();
             // 
             // LsvCollege
@@ -176,34 +171,6 @@ namespace SampleWinAppDB
             this.title.TabIndex = 0;
             this.title.Text = "COLLEGE DETAILS";
             // 
-            // CtxMenuStripDepartmentList
-            // 
-            this.CtxMenuStripDepartmentList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RefreshDepartmentRecords,
-            this.UpdateDepartmentRecord,
-            this.DeactivateCollegeRecord});
-            this.CtxMenuStripDepartmentList.Name = "CtxMenuStripDepartmentList";
-            this.CtxMenuStripDepartmentList.Size = new System.Drawing.Size(114, 70);
-            this.CtxMenuStripDepartmentList.Text = "COLLEGE";
-            // 
-            // RefreshDepartmentRecords
-            // 
-            this.RefreshDepartmentRecords.Name = "RefreshDepartmentRecords";
-            this.RefreshDepartmentRecords.Size = new System.Drawing.Size(113, 22);
-            this.RefreshDepartmentRecords.Text = "Refresh";
-            // 
-            // UpdateDepartmentRecord
-            // 
-            this.UpdateDepartmentRecord.Name = "UpdateDepartmentRecord";
-            this.UpdateDepartmentRecord.Size = new System.Drawing.Size(113, 22);
-            this.UpdateDepartmentRecord.Text = "Update";
-            // 
-            // DeactivateCollegeRecord
-            // 
-            this.DeactivateCollegeRecord.Name = "DeactivateCollegeRecord";
-            this.DeactivateCollegeRecord.Size = new System.Drawing.Size(113, 22);
-            this.DeactivateCollegeRecord.Text = "Delete";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,11 +187,11 @@ namespace SampleWinAppDB
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "College Details";
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.CtxMenuStripCollegeList.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.CtxMenuStripDepartmentList.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -244,10 +211,6 @@ namespace SampleWinAppDB
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.ToolStripMenuItem ViewDepartments;
-        private System.Windows.Forms.ContextMenuStrip CtxMenuStripDepartmentList;
-        private System.Windows.Forms.ToolStripMenuItem RefreshDepartmentRecords;
-        private System.Windows.Forms.ToolStripMenuItem UpdateDepartmentRecord;
-        private System.Windows.Forms.ToolStripMenuItem DeactivateCollegeRecord;
     }
 }
 

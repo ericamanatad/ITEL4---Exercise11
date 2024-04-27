@@ -1,9 +1,9 @@
-﻿using SampleWinAppDB.Database;
-using SampleWinAppDB.Model;
+﻿using CollegeDepartmentWinApp.Database;
+using CollegeDepartmentWinApp.Model;
 using System;
 using System.Windows.Forms;
 
-namespace SampleWinAppDB
+namespace CollegeDepartmentWinApp
 {
     public partial class AddEditCollegeForm : Form
     {
@@ -62,7 +62,7 @@ namespace SampleWinAppDB
                         status = dbconnect.AddCollegeRecord(college);
                         if (status)
                         {
-                            MessageBox.Show("Record added successfully!", "Test App", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Record added successfully!", "ADDITION STATUS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Close();
                         }
                         else
@@ -77,7 +77,7 @@ namespace SampleWinAppDB
                         status = dbconnect.UpdateCollegeRecord(college);
                         if (status)
                         {
-                            MessageBox.Show("Record updated successfully!", "Test App", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Record updated successfully!", "UPDATE STATUS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //close current form
                             Close();
                         }
